@@ -1162,7 +1162,7 @@ useEffect(() => {
     <div className="max-w-5xl mx-auto bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
       {/* Tabs Navigation */}
       <div className="border-b border-gray-200">
-        <div className="flex overflow-x-auto px-4 styled-scrollbar no-scrollbar">
+      <div className="flex px-4 no-scrollbar overflow-x-scroll">
           {featureTabs.map((tab) => (
             <button
               key={tab.id}
@@ -1302,8 +1302,8 @@ useEffect(() => {
           {/* Card Content with improved layout */}
           <div className="flex flex-col lg:flex-row">
             {/* Left Side - Vertical Navigation with better mobile experience */}
-            <div className="p-4 sm:p-6 lg:w-1/3 lg:border-r border-gray-200 bg-gray-50">
-              <div className="flex overflow-x-auto pb-2 lg:block lg:overflow-y-auto lg:max-h-[600px]">
+            <div className="p-4 sm:p-6 lg:w-1/3 lg:border-r border-gray-200 bg-gray-50 no-scrollbar">
+              <div className="flex overflow-x-auto pb-2 lg:block lg:overflow-y-auto lg:max-h-[600px] no-scrollbar">
                 <div className="flex lg:flex-col gap-2 w-full">
                   {features.map((feature) => (
                     <button
