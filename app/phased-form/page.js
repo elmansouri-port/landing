@@ -482,7 +482,7 @@ const LeadCapture = () => {
                     value={formData.goals}
                     onChange={handleChange}
                     rows="3"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 text-gray-400"
                     placeholder="Augmenter le taux de conversion, lancer un nouveau produit, etc."
                   ></textarea>
                 </div>
@@ -494,7 +494,7 @@ const LeadCapture = () => {
                       <button
                         key={budget}
                         type="button"
-                        className={`p-3 border rounded-lg text-center transition-all duration-300 ${formData.budget === budget ? 'border-red-600 bg-red-50 font-medium' : 'border-gray-200 hover:border-red-300'}`}
+                        className={`p-3 border rounded-lg text-center transition-all duration-300 text-gray-700 ${formData.budget === budget ? 'border-red-600 bg-red-50 font-medium' : 'border-gray-200 hover:border-red-300'}`}
                         onClick={() => setFormData({ ...formData, budget: budget })}
                       >
                         {budget}
@@ -510,7 +510,7 @@ const LeadCapture = () => {
                       <button
                         key={timeline}
                         type="button"
-                        className={`p-3 border rounded-lg text-center transition-all duration-300 ${formData.timeline === timeline ? 'border-red-600 bg-red-50 font-medium' : 'border-gray-200 hover:border-red-300'}`}
+                        className={`p-3 border rounded-lg text-center transition-all duration-300 text-gray-700 ${formData.timeline === timeline ? 'border-red-600 bg-red-50 font-medium' : 'border-gray-200 hover:border-red-300'}`}
                         onClick={() => setFormData({ ...formData, timeline: timeline })}
                       >
                         {timeline}
@@ -559,7 +559,7 @@ const LeadCapture = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 text-gray-400"
                       placeholder="Jean Dupont"
                       required
                     />
@@ -572,7 +572,7 @@ const LeadCapture = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 ${formData.email && !validateEmail(formData.email) ? 'border-red-500 bg-red-50' : 'border-gray-300'}`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 text-gray-400 ${formData.email && !validateEmail(formData.email) ? 'border-red-500 bg-red-50' : 'border-gray-300'}`}
                       placeholder="jean@entreprise.com"
                       required
                     />
@@ -588,7 +588,7 @@ const LeadCapture = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 ${formData.phone && !validatePhone(formData.phone) ? 'border-red-500 bg-red-50' : 'border-gray-300'}`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 text-gray-400 ${formData.phone && !validatePhone(formData.phone) ? 'border-red-500 bg-red-50' : 'border-gray-300'}`}
                       placeholder="+33 6 12 34 56 78"
                     />
                     {formData.phone && !validatePhone(formData.phone) && (
@@ -603,7 +603,7 @@ const LeadCapture = () => {
                       name="companyName"
                       value={formData.companyName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 text-gray-400"
                       placeholder="Entreprise SAS"
                       required
                     />
@@ -616,7 +616,7 @@ const LeadCapture = () => {
                       name="jobTitle"
                       value={formData.jobTitle}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-all duration-300 text-gray-400"
                       placeholder="Directeur Marketing, CEO, etc."
                     />
                   </div>
@@ -638,7 +638,7 @@ const LeadCapture = () => {
                   <button 
                     type="button" 
                     onClick={() => handleStepChange(4)}
-                    className="text-red-600 hover:text-red-700 flex items-center text-sm font-medium transition-all duration-300"
+                    className="text-red-600 hover:text-red-700 flex items-center text-sm font-medium transition-all duration-300 text-gray-400"
                   >
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
