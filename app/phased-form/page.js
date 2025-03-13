@@ -633,6 +633,9 @@ const LeadCapture = () => {
                     J'accepte que mes données soient utilisées conformément à la <a href="#" className="text-red-600 hover:underline">politique de confidentialité</a>
                   </label>
                 </div>
+
+
+                
                 
                 <div className="flex justify-between pt-4">
                   <button 
