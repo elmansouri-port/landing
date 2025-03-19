@@ -103,9 +103,9 @@ export default function SimulatorPro() {
     <div className="flex h-screen">
       {/* Left sidebar - Navigation Menu - UPDATED with new design */}
       
-      <div className="bg-blue-50 pl-30 pr-15 py-70">
+      <div className="bg-[#EBF3F9] pl-30 pr-15 py-70">
   {/* Votre projet section */}
-  <h2 className={`text-lg font-semibold mb-6 ${
+  <h2 className={`text-lg font-semibold mb-6 transition-colors duration-300 ${
     getActiveSection() === 'votre_projet'
       ? 'text-[#E42724]'
       : isSectionCompleted('votre_projet') || getActiveSection() === 'vos_informations' || getActiveSection() === 'email' || getActiveSection() === 'votre_estimation'
@@ -116,8 +116,8 @@ export default function SimulatorPro() {
   </h2>
   
   {/* Vos informations section */}
-  <div className="mb-8">
-    <h3 className={`text-sm font-medium mb-4 ${
+  <div className="mb-6">
+    <h3 className={`text-sm font-medium mb-3 transition-colors duration-300 ${
       getActiveSection() === 'vos_informations' 
         ? 'text-[#E42724]' 
         : isSectionCompleted('vos_informations') || getActiveSection() === 'la_remuneration' || getActiveSection() === 'email' || getActiveSection() === 'votre_estimation'
@@ -129,10 +129,10 @@ export default function SimulatorPro() {
     
     <div className="relative ml-1">
       {/* Votre profil item */}
-      <div className="flex items-start mb-7">
+      <div className="flex items-start mb-3">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
             getActiveSection() === 'vos_informations'
               ? getActiveStepId() === 'votre_profil'
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -144,7 +144,7 @@ export default function SimulatorPro() {
           />
           
           {/* Vertical Line */}
-          <div className={`absolute top-4 w-1/5 h-8 ${
+          <div className={`absolute top-4 w-1/5 h-4 transition-colors duration-300 ${
             getActiveSection() === 'vos_informations'
               ? 'bg-[#E42724]'
               : getActiveSection() === 'la_remuneration' || isStepCompleted('votre_profil')
@@ -155,7 +155,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 ${
+        <span className={`text-sm ml-3 transition-all duration-300 ${
           getActiveStepId() === 'votre_profil'
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'vos_informations'
@@ -169,10 +169,10 @@ export default function SimulatorPro() {
       </div>
       
       {/* Votre activité item */}
-      <div className="flex items-start mb-0">
+      <div className="flex items-start">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
             getActiveSection() === 'vos_informations'
               ? (getActiveStepId() === 'votre_activite1' || getActiveStepId() === 'votre_activite2')
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -185,7 +185,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 ${
+        <span className={`text-sm ml-3 transition-all duration-300 ${
           (getActiveStepId() === 'votre_activite1' || getActiveStepId() === 'votre_activite2')
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'vos_informations'
@@ -202,7 +202,7 @@ export default function SimulatorPro() {
   
   {/* La rémunération section */}
   <div>
-    <h3 className={`text-sm font-medium mb-4 ${
+    <h3 className={`text-sm font-medium mb-3 transition-colors duration-300 ${
       getActiveSection() === 'la_remuneration' 
         ? 'text-[#E42724]' 
         : isSectionCompleted('la_remuneration') || getActiveSection() === 'email' || getActiveSection() === 'votre_estimation'
@@ -214,10 +214,10 @@ export default function SimulatorPro() {
     
     <div className="relative ml-1">
       {/* Votre salaire item */}
-      <div className="flex items-start mb-7">
+      <div className="flex items-start mb-3">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
             getActiveSection() === 'la_remuneration'
               ? (getActiveStepId() === 'votre_salaire1' || getActiveStepId() === 'votre_salaire2')
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -229,7 +229,7 @@ export default function SimulatorPro() {
           />
           
           {/* Vertical Line */}
-          <div className={`absolute top-4 w-1/5 h-8 ${
+          <div className={`absolute top-4 w-1/5 h-4 transition-colors duration-300 ${
             getActiveSection() === 'la_remuneration'
               ? 'bg-[#E42724]'
               : isSectionCompleted('la_remuneration') || (isStepCompleted('votre_salaire1') && isStepCompleted('votre_salaire2'))
@@ -240,7 +240,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 ${
+        <span className={`text-sm ml-3 transition-all duration-300 ${
           (getActiveStepId() === 'votre_salaire1' || getActiveStepId() === 'votre_salaire2')
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'la_remuneration'
@@ -254,10 +254,10 @@ export default function SimulatorPro() {
       </div>
       
       {/* Votre bulletin de paie item */}
-      <div className="flex items-start mb-0">
+      <div className="flex items-start">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
             getActiveSection() === 'la_remuneration'
               ? (getActiveStepId() === 'votre_bulletin_de_paie1' || getActiveStepId() === 'votre_bulletin_de_paie2')
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -270,7 +270,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 ${
+        <span className={`text-sm ml-3 transition-all duration-300 ${
           (getActiveStepId() === 'votre_bulletin_de_paie1' || getActiveStepId() === 'votre_bulletin_de_paie2')
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'la_remuneration'
