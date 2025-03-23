@@ -210,3 +210,21 @@ const FeatureCard = () => {
 };
 
 export default FeatureCard;
+
+
+
+
+// Landing page content
+          <div className="">
+            
+            
+            {/* CTA Button - positioned to match the image */}
+            <div className="mt-4">
+              <button 
+                onClick={handleStartEstimation}
+                className=""
+              >
+                Estimer mon bulletin de paie
+              </button>
+            </div>
+          </div>

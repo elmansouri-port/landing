@@ -103,9 +103,9 @@ export default function SimulatorPro() {
     <div className="flex h-screen">
       {/* Left sidebar - Navigation Menu - UPDATED with new design */}
       
-      <div className="bg-[#EBF3F9] pl-30 pr-15 py-70">
+      <div className="bg-blue-50 pl-30 pr-15 py-70">
   {/* Votre projet section */}
-  <h2 className={`text-lg font-semibold mb-6 transition-colors duration-300 ${
+  <h2 className={`text-lg font-semibold mb-6 ${
     getActiveSection() === 'votre_projet'
       ? 'text-[#E42724]'
       : isSectionCompleted('votre_projet') || getActiveSection() === 'vos_informations' || getActiveSection() === 'email' || getActiveSection() === 'votre_estimation'
@@ -117,7 +117,7 @@ export default function SimulatorPro() {
   
   {/* Vos informations section */}
   <div className="mb-6">
-    <h3 className={`text-sm font-medium mb-3 transition-colors duration-300 ${
+    <h3 className={`text-sm font-medium mb-3 ${
       getActiveSection() === 'vos_informations' 
         ? 'text-[#E42724]' 
         : isSectionCompleted('vos_informations') || getActiveSection() === 'la_remuneration' || getActiveSection() === 'email' || getActiveSection() === 'votre_estimation'
@@ -132,7 +132,7 @@ export default function SimulatorPro() {
       <div className="flex items-start mb-3">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full ${
             getActiveSection() === 'vos_informations'
               ? getActiveStepId() === 'votre_profil'
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -144,7 +144,7 @@ export default function SimulatorPro() {
           />
           
           {/* Vertical Line */}
-          <div className={`absolute top-4 w-1/5 h-4 transition-colors duration-300 ${
+          <div className={`absolute top-4 w-1/5 h-4 ${
             getActiveSection() === 'vos_informations'
               ? 'bg-[#E42724]'
               : getActiveSection() === 'la_remuneration' || isStepCompleted('votre_profil')
@@ -155,7 +155,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 transition-all duration-300 ${
+        <span className={`text-sm ml-3 ${
           getActiveStepId() === 'votre_profil'
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'vos_informations'
@@ -172,7 +172,7 @@ export default function SimulatorPro() {
       <div className="flex items-start">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full ${
             getActiveSection() === 'vos_informations'
               ? (getActiveStepId() === 'votre_activite1' || getActiveStepId() === 'votre_activite2')
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -185,7 +185,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 transition-all duration-300 ${
+        <span className={`text-sm ml-3 ${
           (getActiveStepId() === 'votre_activite1' || getActiveStepId() === 'votre_activite2')
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'vos_informations'
@@ -202,7 +202,7 @@ export default function SimulatorPro() {
   
   {/* La rémunération section */}
   <div>
-    <h3 className={`text-sm font-medium mb-3 transition-colors duration-300 ${
+    <h3 className={`text-sm font-medium mb-3 ${
       getActiveSection() === 'la_remuneration' 
         ? 'text-[#E42724]' 
         : isSectionCompleted('la_remuneration') || getActiveSection() === 'email' || getActiveSection() === 'votre_estimation'
@@ -217,7 +217,7 @@ export default function SimulatorPro() {
       <div className="flex items-start mb-3">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full ${
             getActiveSection() === 'la_remuneration'
               ? (getActiveStepId() === 'votre_salaire1' || getActiveStepId() === 'votre_salaire2')
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -229,7 +229,7 @@ export default function SimulatorPro() {
           />
           
           {/* Vertical Line */}
-          <div className={`absolute top-4 w-1/5 h-4 transition-colors duration-300 ${
+          <div className={`absolute top-4 w-1/5 h-4 ${
             getActiveSection() === 'la_remuneration'
               ? 'bg-[#E42724]'
               : isSectionCompleted('la_remuneration') || (isStepCompleted('votre_salaire1') && isStepCompleted('votre_salaire2'))
@@ -240,7 +240,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 transition-all duration-300 ${
+        <span className={`text-sm ml-3 ${
           (getActiveStepId() === 'votre_salaire1' || getActiveStepId() === 'votre_salaire2')
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'la_remuneration'
@@ -257,7 +257,7 @@ export default function SimulatorPro() {
       <div className="flex items-start">
         <div className="relative w-3 flex justify-center">
           {/* Bullet */}
-          <div className={`absolute top-1 w-2 h-2 rounded-full transition-all duration-300 ${
+          <div className={`absolute top-1 w-2 h-2 rounded-full ${
             getActiveSection() === 'la_remuneration'
               ? (getActiveStepId() === 'votre_bulletin_de_paie1' || getActiveStepId() === 'votre_bulletin_de_paie2')
                 ? 'bg-[#E42724] ring-3 ring-[#F7BCBB]'
@@ -270,7 +270,7 @@ export default function SimulatorPro() {
         </div>
         
         {/* Text */}
-        <span className={`text-sm ml-3 transition-all duration-300 ${
+        <span className={`text-sm ml-3 ${
           (getActiveStepId() === 'votre_bulletin_de_paie1' || getActiveStepId() === 'votre_bulletin_de_paie2')
             ? 'text-[#E42724] font-medium'
             : getActiveSection() === 'la_remuneration'
@@ -288,115 +288,79 @@ export default function SimulatorPro() {
       
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col p-12">
+      <div className="relative flex-1 flex flex-col pl-20 bg-[#FCFCFC]">
         {isLandingPage ? (
-          // Landing page content
-          <div className="flex-1 flex flex-col items-center justify-center">
-            {/* Illustration and headings */}
-            <div className="max-w-lg text-center mb-8">
-              {/* Illustration */}
-              <div className="flex justify-center mb-8">
-                <Image 
-                  src="/question-illustration.svg" 
-                  alt="Estimation illustration" 
-                  width={240} 
-                  height={180}
-                  // Fallback if the image can't be loaded
-                  onError={(e) => {
-                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'%3E%3Crect width='240' height='180' fill='%23f8f9fa'/%3E%3Ctext x='120' y='90' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-size='24' fill='%23dc3545'%3E%3F%3C/text%3E%3C/svg%3E";
-                  }}
-                />
-              </div>
-              
-              {/* Main heading */}
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">
-                Estimez votre bulletin de paie en moins de 4 minutes !
-              </h1>
-              
-              {/* Subheading */}
-              <p className="text-lg text-gray-600 mb-8">
-                Un peu de texte pour préciser de quoi il est question et pour éviter d'avoir un titre trop long qui manque de punch
-              </p>
-            </div>
-            
-            {/* CTA Button - positioned to match the image */}
-            <div className="mt-4">
-              <button 
-                onClick={handleStartEstimation}
-                className="px-8 py-3 bg-red-500 text-white font-medium rounded-md hover:bg-red-600 transition-colors duration-200 shadow-md hover:shadow-lg"
-              >
-                Estimer mon bulletin de paie
-              </button>
-            </div>
-          </div>
+// Landing page content
+<div className="flex-1 flex flex-col items-start justify-center p-4 bg-[#FCFCFC]">
+  {/* Content container */}
+  <div className="w-full max-w-[500px] text-left">
+    {/* SVG illustration */}
+<div className="mb-6 w-[150px] h-[112.5px] sm:w-[200px] sm:h-[150px] flex items-center ">
+  <img 
+    src="/simulator-pro/first-estimation.svg"
+    alt="Estimation illustration"
+    width="151px"
+    height="163px"
+  />
+</div>
+    {/* Text content */}
+    <h1
+      className="mb-4 w-full max-w-[518px] text-[#0A2C2D] font-figtree text-2xl sm:text-[32px] font-semibold leading-none"
+    >
+      Estimez votre bulletin de <br className="hidden sm:block" /> <span className="block mt-2">paie en moins de 4 minutes !</span>
+    </h1>
+   
+    <p
+      className="mb-6 w-full max-w-[316px] text-[#0A2C2D]/70 font-figtree text-sm sm:text-base font-medium leading-[25px]"
+    >
+      Un peu de texte pour préciser de quoi il est question et pour éviter d'avoir un titre trop long qui manque de punch
+    </p>
+    {/* CTA Button */}
+    <button
+      onClick={handleStartEstimation}
+      className="inline-flex px-4 py-4 justify-center items-center gap-1 rounded-lg bg-[#E42724] text-white font-figtree text-base font-medium leading-none hover:bg-[#c82333] transition-colors duration-200"
+    >
+      Estimer mon bulletin de paie
+    </button>
+  </div>
+</div>
         ) : (
           // Step content when not on landing page
           <div className="flex flex-col h-full">
-            {/* Header with title and icon */}
-            <div className="flex items-center mb-12">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mr-5 shadow-sm">
-                <svg viewBox="0 0 24 24" className="w-8 h-8 text-red-500" fill="none" stroke="currentColor">
-                  <rect x="4" y="5" width="16" height="16" rx="2" />
-                  <path d="M16 3v4" />
-                  <path d="M8 3v4" />
-                  <path d="M4 11h16" />
-                </svg>
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gray-800">
-                  {getActiveSection() === 'vos_informations' && "Vos informations"}
-                  {getActiveSection() === 'votre_projet' && "Votre projet"}
-                  {getActiveSection() === 'la_remuneration' && "La rémunération"}
-                </h1>
-                {(getActiveStepId() === 'votre_activite1' || getActiveStepId() === 'votre_activite2') && (
-                  <div className="flex items-center mt-1">
-                    <span className="text-gray-400 font-medium">/ Votre activité</span>
-                  </div>
-                )}
-                {(getActiveStepId() === 'votre_salaire1' || getActiveStepId() === 'votre_salaire2') && (
-                  <div className="flex items-center mt-1">
-                    <span className="text-gray-400 font-medium">/ Votre salaire</span>
-                  </div>
-                )}
-                {(getActiveStepId() === 'votre_bulletin_de_paie1' || getActiveStepId() === 'votre_bulletin_de_paie2') && (
-                  <div className="flex items-center mt-1">
-                    <span className="text-gray-400 font-medium">/ Votre bulletin de paie</span>
-                  </div>
-                )}
-              </div>
-            </div>
+            {/* Header with title and icon ################################################*/}
             
-            {/* Dynamic step content */}
+            
+            {/* Dynamic step content #######################################################*/}
             <div className="flex-1 mb-12">
               {CurrentStepComponent && <CurrentStepComponent data={formData} setData={setFormData} />}
             </div>
             
-            {/* Navigation buttons - positioned closer to the form content, not at bottom */}
-            <div className="flex justify-between mt-8">
-              {/* Previous button - styled to match the image with enhanced styling */}
-              <button 
-                onClick={handlePrev}
-                className="flex items-center gap-2 px-8 py-3 rounded-md bg-blue-50 text-gray-700 hover:bg-blue-100 transition-colors duration-200 shadow-sm hover:shadow-md"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Précédent
-              </button>
-              
-              {/* Next button - styled to match the image with enhanced styling */}
-              {currentStep < steps.length - 1 && (
-                <button 
-                  onClick={handleNext}
-                  className="flex items-center gap-2 px-8 py-3 rounded-md bg-red-500 text-white hover:bg-red-600 transition-colors duration-200 shadow-md hover:shadow-lg"
-                >
-                  Suivant
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
-                </button>
-              )}
-            </div>
+{/* Navigation buttons - fixed at bottom with no background */}
+<div className="absolute bottom-44 left-26 flex gap-4"> {/* Adjust bottom-8 to control height from bottom */}
+  {/* Previous button */}
+  <button 
+    onClick={handlePrev}
+    className="flex items-center gap-2 px-8 py-3 rounded-md bg-[#D5F5F6] text-gray-700 hover:bg-blue-100 transition-colors duration-200 shadow-sm hover:shadow-md"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+    </svg>
+    Précédent
+  </button>
+  
+  {/* Next button */}
+  {currentStep < steps.length - 1 && (
+    <button 
+      onClick={handleNext}
+      className="flex items-center gap-2 px-8 py-3 rounded-md bg-[#E42724] text-white hover:bg-red-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+    >
+      Suivant
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+      </svg>
+    </button>
+  )}
+</div>
           </div>
         )}
       </div>
