@@ -13,8 +13,6 @@ export default function Email({
     Consent: data.Consent ?? false,
   });
 
-
-
   const handleEmailChange = (e) => {
     setData({ ...inputData, Email: e.target.value, Consent: false });
   };
