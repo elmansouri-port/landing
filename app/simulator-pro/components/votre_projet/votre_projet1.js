@@ -3,7 +3,6 @@ export default function VotreProjet1({
   setData,
   onNext,
   onPrev,
-  isLastStep,
   isCurrentStepComplete,
 }) {
   const handleDomainSelect = (domain) => {

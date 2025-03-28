@@ -3,7 +3,6 @@ export default function VotreSalarie1({
   setData,
   onNext,
   onPrev,
-  isLastStep,
   isCurrentStepComplete,
 }) {
   const handlesalarie1Select = (salarie1) => {

@@ -6,7 +6,6 @@ export default function VotreBulletinDePaie1({
   setData,
   onNext,
   onPrev,
-  isLastStep,
 }) {
   const currentDate = new Date();
 

@@ -7,13 +7,11 @@ export default function VotreBulletinDePaie2({
   onPrev,
   isLastStep,
 }) {
-  // Ensure data is initialized with the correct structure
   const [localData, setLocalData] = useState({
     bulletinDePaie2: data?.bulletinDePaie2 || "",
     NbTime: data?.NbTime || "",
   });
 
-  // Check if the current step is complete
   const isCurrentStepComplete = !!(
     localData.bulletinDePaie2 && localData.NbTime
   );
@@ -25,14 +23,12 @@ export default function VotreBulletinDePaie2({
     setData({ ...data, ...updatedData });
   };
 
-  // Handle Salarie Name change
   const handleNbTimeChange = (e) => {
     const updatedData = { ...localData, NbTime: e.target.value };
     setLocalData(updatedData);
     setData({ ...data, ...updatedData });
   };
 
-  // Clear Salarie Name
   const clearNbTime = () => {
     const updatedData = { ...localData, NbTime: "" };
     setLocalData(updatedData);
@@ -84,7 +80,7 @@ export default function VotreBulletinDePaie2({
               {localData.bulletinDePaie2 || "salaire net"}
             </span>
           </span>{" "}
-          fixé à {/* Input container with padding to prevent overlap */}
+          fixé à
           <div className="p-3 rounded-lg outline-2 outline-offset-[-1px] outline-cyan-700 inline-flex items-center gap-px relative">
             <input
               type="Number"

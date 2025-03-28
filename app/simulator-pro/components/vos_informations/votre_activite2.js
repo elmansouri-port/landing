@@ -3,7 +3,6 @@ export default function VotreNbBulletin({
   setData,
   onNext,
   onPrev,
-  isLastStep,
   isCurrentStepComplete,
 }) {
   const handleNbBulletinSelect = (NbBulletin) => {

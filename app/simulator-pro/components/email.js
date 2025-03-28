@@ -43,11 +43,10 @@ export default function Email({
       setTimeout(() => {
         setIsLoading(false);
         onNext();
-      }, 8000); // 2 seconds loading screen
+      }, 8000);
     }
   };
 
-  // If loading, render the loading screen
   if (isLoading) {
     return (
       <div className="fixed inset-0 bg-white flex items-center justify-center">
@@ -80,16 +79,16 @@ export default function Email({
         </div>
       </div>
 
-      {/* Structure name input - new section */}
+      {/* Email input - new section */}
       <div className="text-base" style={{ color: "#0A2C2D" }}>
-        {/* Flex container that will wrap on small screens */}
+        
         <div className="flex flex-wrap items-center gap-1">
           <div className="text-teal-950 font-normal font-['Figtree'] pb-3 max-w-[500px]">
             Pour obtenir votre estimation nous avons besoin de votre e-mail
             professionnel (pas de panique nous ne vous enverrons aucune pub)
           </div>
         </div>
-        {/* Input container with padding to prevent overlap */}
+        
         <div className="p-3 rounded-lg outline-2 outline-offset-[-1px] outline-cyan-700 inline-flex items-center gap-px relative">
           <input
             type="email"
@@ -99,11 +98,11 @@ export default function Email({
             placeholder="exemple@email.com"
             style={{
               "--input-width": `${Math.max(
-                data?.Email?.length * 8 || "Compagnie Deconcerto  ".length * 8, // Start with placeholder width
-                195 // Ensure a reasonable minimum width
+                data?.Email?.length * 8 || "Compagnie Deconcerto  ".length * 8, 
+                195 
               )}px`,
               width: "var(--input-width)",
-              maxWidth: "100%", // Prevent overflow
+              maxWidth: "100%", 
             }}
           />
 
@@ -129,12 +128,12 @@ export default function Email({
           )}
         </div>
       </div>
-      {/* Radio button updated to use data.Consent */}
+      {/* Consent */}
       <label className="flex items-center cursor-pointer mt-3">
         <input
           type="radio"
           name="consent"
-          checked={data.Consent ?? false} // Fallback to false
+          checked={data.Consent ?? false} 
           onChange={(e) => setData({ ...data, Consent: e.target.checked })}
           className="hidden"
         />
@@ -176,7 +175,7 @@ export default function Email({
           ${isEmailValid && data.Consent ? "bg-[#E42724] text-white hover:bg-red-700" : "bg-gray-400 text-gray-200 cursor-not-allowed"
           }`}
         >
-           Suivant
+           Mon estimation
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

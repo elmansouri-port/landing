@@ -34,13 +34,11 @@ export default function VotreProjet3({
 
       {/* Structure name input - new section */}
       <div className="text-base" style={{ color: "#0A2C2D" }}>
-        {/* Flex container that will wrap on small screens */}
         <div className="flex flex-wrap items-center gap-1">
           <div className="text-teal-950 font-normal font-['Figtree']">
             Ma structure se nomme
           </div>
 
-          {/* Input container with padding to prevent overlap */}
           <div className="p-3 rounded-lg outline-2 outline-offset-[-1px] outline-cyan-700 inline-flex items-center gap-px relative">
             <input
               type="text"
@@ -51,11 +49,11 @@ export default function VotreProjet3({
               style={{
                 "--input-width": `${Math.max(
                   data?.StructurName?.length * 8 ||
-                    "Compagnie Deconcerto  ".length * 8, // Start with placeholder width
-                  195 // Ensure a reasonable minimum width
+                    "Compagnie Deconcerto  ".length * 8,
+                  195
                 )}px`,
                 width: "var(--input-width)",
-                maxWidth: "100%", // Prevent overflow
+                maxWidth: "100%",
               }}
             />
 

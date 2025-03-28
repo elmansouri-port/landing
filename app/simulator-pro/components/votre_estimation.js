@@ -34,7 +34,7 @@ export default function VotreEstimation({ data, setData }) {
               className="object-contain w-full h-full"
             />
           </div>
-          {/* Text and button container */}
+          
           <div className="flex flex-col justify-between w-full">
             <p className="text-gray-600 mb-4 text-[13px] sm:text-[14px]">
               Cette fourchette représente <b>une estimation indicative.</b> Pour

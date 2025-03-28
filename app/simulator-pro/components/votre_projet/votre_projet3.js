@@ -32,15 +32,13 @@ export default function VotreProjet2({
         </div>
       </div>
 
-      {/* Structure name input - new section */}
+      
       <div className="text-base" style={{ color: "#0A2C2D" }}>
-        {/* Flex container that will wrap on small screens */}
         <div className="flex flex-wrap items-center gap-1">
           <div className="text-teal-950 font-normal font-['Figtree']">
             Mon projet se déroule dans la commune de
           </div>
 
-          {/* Input container with padding to prevent overlap */}
           <div className="p-3 rounded-lg outline-2 outline-offset-[-1px] outline-cyan-700 inline-flex items-center gap-px relative">
             <input
               type="text"
@@ -50,11 +48,11 @@ export default function VotreProjet2({
               placeholder="Nanterre"
               style={{
                 "--input-width": `${Math.max(
-                  data?.CommuneName?.length * 8 || "Nanterre  ".length * 8, // Start with placeholder width
-                  90 // Ensure a reasonable minimum width
+                  data?.CommuneName?.length * 8 || "Nanterre  ".length * 8,
+                  90 
                 )}px`,
                 width: "var(--input-width)",
-                maxWidth: "100%", // Prevent overflow
+                maxWidth: "100%",
               }}
             />
 
