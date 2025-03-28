@@ -1,8 +1,6 @@
-"use client"; // Required for client-side interactivity
+"use client";
 import { useState } from "react";
 
-// Import your step components
-// These will be purely presentational components without navigation logic
 import VotreProjet1 from "./components/votre_projet/votre_projet1";
 import VotreProjet2 from "./components/votre_projet/votre_projet2";
 import VotreProjet3 from "./components/votre_projet/votre_projet3";
@@ -18,16 +16,16 @@ import VotreEstimation from "./components/votre_estimation";
 import Email from "./components/email";
 
 export default function SimulatorPro() {
-  // State for tracking whether we're on the landing page or in the steps
+  // State landing page or steps
   const [isLandingPage, setIsLandingPage] = useState(true);
 
-  // State for tracking the current step when not on landing page
+  // State current step
   const [currentStep, setCurrentStep] = useState(0);
 
-  // State for storing form data across all steps
+  // form data
   const [formData, setFormData] = useState({});
 
-  // Define all the steps in your flow
+  // My steps
   const steps = [
     {
       id: "votre_projet1",
@@ -107,7 +105,7 @@ export default function SimulatorPro() {
   // Handler for the start button on landing page
   const handleStartEstimation = () => {
     setIsLandingPage(false);
-    setCurrentStep(0); // Start with the first step
+    setCurrentStep(0);
   };
 
   // Navigation handlers
@@ -118,7 +116,7 @@ export default function SimulatorPro() {
 
   const handleNext = () => {
     if (!isStepComplete(formData, currentStep)) {
-      return false; // Validation failed
+      return false;
     }
 
     if (currentStep < steps.length - 1) {
@@ -126,42 +124,37 @@ export default function SimulatorPro() {
       return true;
     }
 
-    return true; // For final step submission
+    return true;
   };
 
   const handlePrev = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     } else {
-      // If we're on the first step, go back to landing page
       setIsLandingPage(true);
     }
   };
 
-  // Helper function to get the active section
   const getActiveSection = () => {
     if (isLandingPage) return "landing";
     return steps[currentStep].section;
   };
 
-  // Helper function to get the active step within a section
   const getActiveStepId = () => {
     if (isLandingPage) return null;
     return steps[currentStep].id;
   };
 
-  // Helper function to check if a step is completed
   const isStepCompleted = (stepId) => {
     const stepIndex = steps.findIndex((step) => step.id === stepId);
     return stepIndex < currentStep;
   };
 
-  // Current step component
   const CurrentStepComponent = isLandingPage
     ? null
     : steps[currentStep].component;
 
-  // Define section order for completion checks
+  // Section order for completion checks
   const sectionOrder = [
     "landing",
     "votre_projet",
@@ -171,7 +164,6 @@ export default function SimulatorPro() {
     "votre_estimation",
   ];
 
-  //isSectionCompleted function
   const isSectionCompleted = (section) => {
     const currentSection = getActiveSection();
     const currentIdx = sectionOrder.indexOf(currentSection);
@@ -179,28 +171,22 @@ export default function SimulatorPro() {
     return targetIdx < currentIdx;
   };
 
-  // Redefined getNavigationStyles function
   const getNavigationStyles = (type, targetIds) => {
     const activeSection = getActiveSection();
     const activeStepId = getActiveStepId();
 
-    // Convert single ID to array for consistency
     const targetIdArray = Array.isArray(targetIds) ? targetIds : [targetIds];
 
-    // Find the first matching step (assuming all targets are in same section)
     const step = steps.find((s) => targetIdArray.includes(s.id));
-    const sectionId = step?.section || targetIdArray[0]; // Fallback to first ID's section
+    const sectionId = step?.section || targetIdArray[0];
 
     const isTargetSectionActive = activeSection === sectionId;
     const isTargetSectionCompleted = isSectionCompleted(sectionId);
 
-    // Check if any step in targetIds is active
     const isActiveStep = targetIdArray.includes(activeStepId);
-    // Check if all steps in targetIds are completed
     const areAllCompleted = targetIdArray.every((id) => isStepCompleted(id));
 
     if (type === "section") {
-      // Sections only care about their own state
       return activeSection === sectionId
         ? "text-[#E42724]"
         : isTargetSectionCompleted
