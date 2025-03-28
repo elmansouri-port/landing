@@ -10,12 +10,12 @@ export default function VotreBulletinDePaie2({
   // Ensure data is initialized with the correct structure
   const [localData, setLocalData] = useState({
     bulletinDePaie2: data?.bulletinDePaie2 || "",
-    salarieName: data?.salarieName || "",
+    NbTime: data?.NbTime || "",
   });
 
   // Check if the current step is complete
   const isCurrentStepComplete = !!(
-    localData.bulletinDePaie2 && localData.salarieName
+    localData.bulletinDePaie2 && localData.NbTime
   );
 
   // Handle selection of Bulletin de Paie type
@@ -26,15 +26,15 @@ export default function VotreBulletinDePaie2({
   };
 
   // Handle Salarie Name change
-  const handleSalarieNameChange = (e) => {
-    const updatedData = { ...localData, salarieName: e.target.value };
+  const handleNbTimeChange = (e) => {
+    const updatedData = { ...localData, NbTime: e.target.value };
     setLocalData(updatedData);
     setData({ ...data, ...updatedData });
   };
 
   // Clear Salarie Name
-  const clearSalarieName = () => {
-    const updatedData = { ...localData, salarieName: "" };
+  const clearNbTime = () => {
+    const updatedData = { ...localData, NbTime: "" };
     setLocalData(updatedData);
     setData({ ...data, ...updatedData });
   };
@@ -49,20 +49,24 @@ export default function VotreBulletinDePaie2({
   return (
     <div className="mt-10 pl-4 max-w-23xl bg-[#FCFCFC]">
       <div className="flex flex-col bg-[#FCFCFC]">
-        <div className="w-full max-w-[700px] text-left">
-          <div className="mb-4 w-[120px] h-[90px] sm:w-[160px] sm:h-[90px]">
-            <img
-              src="/simulator-pro/the-guy.svg"
-              alt="Estimation"
-              width="121px"
-              height="130px"
-            />
-          </div>
-          <div className="flex flex-wrap items-baseline gap-2 pb-5">
-            <div className="text-teal-950 text-4xl font-semibold">
-              Vos informations
+        <div className="flex flex-col bg-[#FCFCFC]">
+          <div className="w-full max-w-[700px] text-left">
+            <div className="mb-4 w-[120px] h-[90px] sm:w-[160px] sm:h-[90px]">
+              <img
+                src="/simulator-pro/the-guy.svg"
+                alt="Estimation"
+                width="121px"
+                height="130px"
+              />
             </div>
-            <div className="text-[#99C2E1] text-2xl">/ Votre activité</div>
+            <div className="flex flex-wrap items-baseline gap-2 pb-5">
+              <div className="text-teal-950 text-4xl font-semibold">
+                La rémunération
+              </div>
+              <div className="text-[#99C2E1] text-2xl">
+                / Votre bulletin de paie
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -80,25 +84,24 @@ export default function VotreBulletinDePaie2({
               {localData.bulletinDePaie2 || "salaire net"}
             </span>
           </span>{" "}
-          fixé à {" "}
-          {/* Input container with padding to prevent overlap */}
+          fixé à {/* Input container with padding to prevent overlap */}
           <div className="p-3 rounded-lg outline-2 outline-offset-[-1px] outline-cyan-700 inline-flex items-center gap-px relative">
             <input
               type="Number"
-              value={localData.salarieName}
-              onChange={handleSalarieNameChange}
+              value={localData.NbTime}
+              onChange={handleNbTimeChange}
               className="text-[#285E86] font-medium font-['Figtree'] leading-tight bg-transparent outline-none placeholder:text-blue-300 w-[80px] pr-6 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               placeholder="2 300"
               style={{
                 appearance: "none",
-                MozAppearance : "none"
+                MozAppearance: "none",
               }}
             />
 
             {/* Clear button */}
-            {localData.salarieName && (
+            {localData.NbTime && (
               <button
-                onClick={clearSalarieName}
+                onClick={clearNbTime}
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
               >
                 <svg
@@ -115,7 +118,8 @@ export default function VotreBulletinDePaie2({
                 </svg>
               </button>
             )}
-          </div> €
+          </div>{" "}
+          €
         </div>
       </div>
       <div className="max-w-[500px] flex flex-wrap gap-1.5">
@@ -175,8 +179,7 @@ export default function VotreBulletinDePaie2({
                 : "bg-gray-400 text-gray-200 cursor-not-allowed"
             }`}
         >
-          {isLastStep ? "Terminer" : "Suivant"}
-          {!isLastStep && (
+          Suivant 
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -189,7 +192,6 @@ export default function VotreBulletinDePaie2({
                 clipRule="evenodd"
               />
             </svg>
-          )}
         </button>
       </div>
     </div>

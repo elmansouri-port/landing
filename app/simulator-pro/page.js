@@ -221,10 +221,10 @@ export default function SimulatorPro() {
   };
 
   return (
-    <div className="flex h-full bg-[#FCFCFC]">
+    <div className="flex h-lvh bg-[#FCFCFC] max-lg:justify-center max-lg:items-center">
       {/* Left sidebar - Navigation Menu */}
 
-      <div className="relative flex flex-col justify-center bg-blue-50 pl-30 pr-15 py-70">
+      <div className="max-lg:hidden relative flex flex-col justify-center bg-blue-50 pl-30 pr-15 py-70">
         {/* Votre projet section */}
         <h2
           className={`text-lg font-semibold mb-6 ${getNavigationStyles(
@@ -373,14 +373,14 @@ export default function SimulatorPro() {
       </div>
 
       {/* Main content */}
-      <div className="relative flex-1 flex flex-col pl-20 bg-[#FCFCFC]">
+      <div className="relative flex-1 flex flex-col lg:pl-20 max-lg:px-4 bg-[#FCFCFC] max-lg:justify-center max-lg:items-center">
         {isLandingPage ? (
           // Landing page content
-          <div className="flex-1 flex flex-col items-start justify-center p-4 bg-[#FCFCFC]">
+          <div className="flex-1 flex flex-col items-start justify-center px-4 bg-[#FCFCFC]">
             {/* Content container */}
             <div className="w-full max-w-[500px] text-left">
               {/* SVG illustration */}
-              <div className="mb-6 w-[150px] h-[112.5px] sm:w-[200px] sm:h-[150px] flex items-center ">
+              <div className="mb-6 w-[150px] h-[112.5px] sm:w-[200px] sm:h-[150px] flex items-center max-sm:mb-10">
                 <img
                   src="/simulator-pro/first-estimation.svg"
                   alt="Estimation illustration"

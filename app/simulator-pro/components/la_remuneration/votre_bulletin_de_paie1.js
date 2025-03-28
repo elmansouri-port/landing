@@ -14,10 +14,6 @@ export default function VotreBulletinDePaie1({
     data.startDate ? parse(data.startDate, "dd/MM/yyyy", currentDate) : null
   );
 
-  const clearSalarieName = () => {
-    setData({ ...data, numberOfDays: "" });
-  };
-
   const [inputDate, setInputDate] = useState(
     selectedDate
       ? format(selectedDate, "dd/MM/yyyy")
@@ -231,7 +227,7 @@ export default function VotreBulletinDePaie1({
   }, [inputDate, selectedTime, selectedNumberOfDays, data.type]);
 
   return (
-    <div className="mt-10 pl-4 max-w-2xl bg-[#FCFCFC]">
+    <div className="md:mt-10 pl-4 max-w-2xl bg-[#FCFCFC]">
       <div className="flex flex-col bg-[#FCFCFC]">
         <div className="w-full max-w-[700px] text-left">
           <div className="mb-4 w-[120px] h-[90px] sm:w-[160px] sm:h-[90px]">
@@ -301,7 +297,7 @@ export default function VotreBulletinDePaie1({
             </div>
             {isCalendarOpen && (
               <div
-                className="absolute z-10 w-85 bg-white rounded-lg shadow-lg overflow-hidden mt-1"
+                className="absolute z-10 w-85 right-0 bg-white rounded-lg shadow-lg overflow-hidden mt-1"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex justify-center items-center bg-[#E42724] text-white p-2">
@@ -448,7 +444,7 @@ export default function VotreBulletinDePaie1({
           </div>
         </div>
       </div>
-      <div className="max-w-[500px] inline-flex gap-1.5">
+      <div className="max-w-[500px] inline-flex gap-2.5">
         {types.map((type) =>
           data.type === type ? (
             <div
@@ -500,8 +496,7 @@ export default function VotreBulletinDePaie1({
                 : "bg-gray-400 text-gray-200 cursor-not-allowed"
             }`}
         >
-          {isLastStep ? "Terminer" : "Suivant"}
-          {!isLastStep && (
+          Suivant 
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -514,7 +509,6 @@ export default function VotreBulletinDePaie1({
                 clipRule="evenodd"
               />
             </svg>
-          )}
         </button>
       </div>
     </div>

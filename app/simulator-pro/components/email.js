@@ -5,17 +5,23 @@ export default function Email({
   setData,
   onNext,
   onPrev,
-  isLastStep,
-  isCurrentStepComplete,
 }) {
   const [isLoading, setIsLoading] = useState(false);
 
+  const [inputData, setinputData] = useState({
+    ...data,
+    Consent: data.Consent ?? false,
+  });
+
+
+
   const handleEmailChange = (e) => {
-    setData({ ...data, Email: e.target.value, Consent: false });
+    setData({ ...inputData, Email: e.target.value, Consent: false });
+    console.log(data)
   };
 
   const clearEmail = () => {
-    setData({ ...data, Email: "" });
+    setData({ ...inputData, Email: "" });
   };
 
   const [selected, setSelected] = useState(false);
@@ -128,7 +134,7 @@ export default function Email({
         <input
           type="radio"
           name="consent"
-          checked={data.Consent}
+          checked={data.Consent ?? false} // Fallback to false
           onChange={(e) => setData({ ...data, Consent: e.target.checked })}
           className="hidden"
         />
@@ -144,7 +150,6 @@ export default function Email({
 
       {/* Navigation buttons */}
       <div className="mt-8 flex gap-4">
-        {/* Previous button remains the same */}
         <button
           onClick={onPrev}
           className="flex items-center gap-2 px-8 py-3 rounded-md bg-[#D5F5F6] text-gray-700 hover:bg-blue-100 transition-colors duration-200 shadow-sm hover:shadow-md"
@@ -164,7 +169,6 @@ export default function Email({
           Précédent
         </button>
 
-        {/* Next button with updated disabled condition */}
         <button
           onClick={handleNext}
           disabled={!(isEmailValid && data.Consent)}
@@ -172,8 +176,7 @@ export default function Email({
           ${isEmailValid && data.Consent ? "bg-[#E42724] text-white hover:bg-red-700" : "bg-gray-400 text-gray-200 cursor-not-allowed"
           }`}
         >
-          {isLastStep ? "Terminer" : "Suivant"}
-          {!isLastStep && (
+           Suivant
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -186,7 +189,6 @@ export default function Email({
                 clipRule="evenodd"
               />
             </svg>
-          )}
         </button>
       </div>
     </div>
