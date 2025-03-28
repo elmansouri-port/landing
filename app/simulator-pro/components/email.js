@@ -17,7 +17,6 @@ export default function Email({
 
   const handleEmailChange = (e) => {
     setData({ ...inputData, Email: e.target.value, Consent: false });
-    console.log(data)
   };
 
   const clearEmail = () => {
