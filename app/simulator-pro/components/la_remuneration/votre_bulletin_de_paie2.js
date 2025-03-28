@@ -80,7 +80,7 @@ export default function VotreBulletinDePaie2({
               {localData.bulletinDePaie2 || "salaire net"}
             </span>
           </span>{" "}
-          fixé à
+          fixé à{" "}
           <div className="p-3 rounded-lg outline-2 outline-offset-[-1px] outline-cyan-700 inline-flex items-center gap-px relative">
             <input
               type="Number"
