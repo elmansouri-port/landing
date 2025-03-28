@@ -103,7 +103,7 @@ body {
 @keyframes float {
   0%, 100% {
     transform:
-    translateY(0)
+     translateY(0)
     rotate(-5deg);
   }
   50% {

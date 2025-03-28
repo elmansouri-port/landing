@@ -221,10 +221,10 @@ export default function SimulatorPro() {
   };
 
   return (
-    <div className="flex h-screen bg-[#FCFCFC]">
+    <div className="flex h-full bg-[#FCFCFC]">
       {/* Left sidebar - Navigation Menu */}
 
-      <div className="bg-blue-50 pl-30 pr-15 py-70">
+      <div className="relative flex flex-col justify-center bg-blue-50 pl-30 pr-15 py-70">
         {/* Votre projet section */}
         <h2
           className={`text-lg font-semibold mb-6 ${getNavigationStyles(

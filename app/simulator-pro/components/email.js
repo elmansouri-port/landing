@@ -11,7 +11,7 @@ export default function Email({
   const [isLoading, setIsLoading] = useState(false);
 
   const handleEmailChange = (e) => {
-    setData({ ...data, Email: e.target.value, Consent: false, });
+    setData({ ...data, Email: e.target.value, Consent: false });
   };
 
   const clearEmail = () => {
