@@ -59,23 +59,19 @@ export default function VotreBulletinDePaie1({
     if (!dateRegex.test(dateString)) {
       return "Format invalide. Utilisez JJ/MM/AAAA";
     }
-
+  
     const parsedDate = parse(dateString, "dd/MM/yyyy", new Date());
-
+  
     if (!isValid(parsedDate)) {
       return "Date invalide";
     }
-
+  
     const currentYear = new Date().getFullYear();
     const year = parsedDate.getFullYear();
-    if (year < 1900 || year > currentYear + 1) {
+    if (year < 2010) {
       return "Année invalide";
     }
-
-    if (isAfter(parsedDate, new Date())) {
-      return "La date ne peut pas être dans le futur";
-    }
-
+  
     return "";
   };
 
