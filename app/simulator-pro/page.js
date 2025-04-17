@@ -362,7 +362,7 @@ export default function SimulatorPro() {
       <div className="relative flex-1 flex flex-col lg:pl-20 max-lg:px-4 bg-[#FCFCFC] max-lg:justify-center max-lg:items-center">
         {isLandingPage ? (
           // Landing page content
-          <div className="flex-1 flex flex-col items-start justify-center px-4 bg-[#FCFCFC]">
+          <div className="flex-1 flex flex-col items-start justify-start pt-45 px-4 bg-[#FCFCFC]">
             {/* Content container */}
             <div className="w-full max-w-[500px] text-left">
               {/* SVG illustration */}
@@ -395,17 +395,20 @@ export default function SimulatorPro() {
           </div>
         ) : (
           // Step content when not on landing page
-          <div className="flex flex-col h-full justify-center">
-            {CurrentStepComponent && (
-              <CurrentStepComponent
-                data={formData}
-                setData={setFormData}
-                onNext={handleNext}
-                onPrev={handlePrev}
-                isLastStep={currentStep === steps.length - 1}
-                isCurrentStepComplete={isStepComplete(formData, currentStep)}
-              />
-            )}
+          <div className="flex flex-col h-full pt-35 pb-8">
+            {/* Content area with fixed positioning */}
+            <div className="flex-1 overflow-y-auto">
+              {CurrentStepComponent && (
+                <CurrentStepComponent
+                  data={formData}
+                  setData={setFormData}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
+                  isLastStep={currentStep === steps.length - 1}
+                  isCurrentStepComplete={isStepComplete(formData, currentStep)}
+                />
+              )}
+            </div>
           </div>
         )}
       </div>

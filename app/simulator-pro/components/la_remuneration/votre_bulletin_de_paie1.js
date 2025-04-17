@@ -261,7 +261,7 @@ export default function VotreBulletinDePaie1({
                   type="text"
                   value={inputDate}
                   onChange={handleInputDateChange}
-                  className={`w-[100px] text-[#285E86] text-base font-medium font-['Figtree'] leading-tight border-none bg-transparent cursor-text focus:outline-none placeholder:text-blue-300`}
+                  className={`w-[100px] text-[#285E86] text-base font-medium leading-tight border-none bg-transparent cursor-text focus:outline-none placeholder:text-blue-300`}
                   placeholder="JJ/MM/AAAA"
                 />
               </div>
@@ -383,7 +383,7 @@ export default function VotreBulletinDePaie1({
             onChange={handleTimeChange}
             className={`w-[80px] ${
               inputErrors.time ? "outline-[#E42724]" : "outline-[#285E86]"
-            } font-medium font-['Figtree'] leading-tight bg-transparent text-[#285E86] pr-6 p-3 rounded-lg outline-2 outline-offset-[-1px]`}
+            } font-medium leading-tight bg-transparent text-[#285E86] pr-6 p-3 rounded-lg outline-2 outline-offset-[-1px]`}
             placeholder="Heure"
           />
 
@@ -398,7 +398,7 @@ export default function VotreBulletinDePaie1({
                     const value = e.target.value;
                     setSelectedNumberOfDays(value);
                   }}
-                  className="text-[#285E86] font-medium font-['Figtree'] leading-tight bg-transparent outline-none placeholder:text-blue-300 w-[50px] pr-6 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  className="text-[#285E86] font-medium leading-tight bg-transparent outline-none placeholder:text-blue-300 w-[50px] pr-6 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                   placeholder="01"
                   style={{ appearance: "none", MozAppearance : "none" }}
                 />

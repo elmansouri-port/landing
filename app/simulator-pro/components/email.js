@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Email({
   data,
@@ -7,12 +7,36 @@ export default function Email({
   onPrev,
 }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [estimationData, setEstimationData] = useState(null);
 
-  const [inputData, setinputData] = useState({
+  const [inputData, setInputData] = useState({
     ...data,
     Consent: data.Consent ?? false,
   });
 
+  // Prepare the payload for API request
+  const preparePayload = () => {
+    return {
+      domain: data.domain || "la musique",
+      StructurName: data.StructurName || "structure name",
+      CommuneName: data.CommuneName || "commune",
+      nbrSalariés: data.nbrSalariés || "0-3",
+      profileName: data.profileName || "my name",
+      activite: data.activite || "un expert-comptable gère mes paies",
+      NbBulletin: data.NbBulletin || "0 à 5",
+      salarie1: data.salarie1 || "un artiste",
+      SalarieName: data.SalarieName || "regisseur",
+      type: data.type || "heure(s)",
+      startDate: data.startDate || "16/04/2025",
+      startTime: data.startTime || "12:59",
+      numberOfDays: data.numberOfDays || "12",
+      salaireMode: data.salaireMode || "salaire net",
+      NbTime: data.NbTime || "1234",
+      Email: data.Email || ""
+    };
+  };
+
+  // Handle email input change
   const handleEmailChange = (e) => {
     setData({ ...inputData, Email: e.target.value, Consent: false });
   };
@@ -34,9 +58,50 @@ export default function Email({
 
   const isEmailValid = data.Email ? isValidEmail(data.Email) : false;
 
-  const handleNext = () => {
+  // Make API request to get estimation
+  const fetchEstimation = async () => {
+    try {
+      const payload = preparePayload();
+      
+      const response = await fetch("https://ciest.pythonanywhere.com/proxy_simulation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+
+      const estimationResult = await response.json();
+      
+      setEstimationData(estimationResult);
+      
+      // Store the estimation data for next component
+      const updatedData = {
+        ...data,
+        estimation: estimationResult
+      };
+      
+      setData(updatedData);
+      console.log(data)
+      console.log(estimationResult)
+      return estimationResult;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
+
+  const handleNext = async () => {
     if (isEmailValid && data.Consent) {
       setIsLoading(true);
+      
+      // Get estimation data
+      const result = await fetchEstimation();
+      
       setTimeout(() => {
         setIsLoading(false);
         onNext();
@@ -80,7 +145,7 @@ export default function Email({
       <div className="text-base" style={{ color: "#0A2C2D" }}>
         
         <div className="flex flex-wrap items-center gap-1">
-          <div className="text-teal-950 font-normal font-['Figtree'] pb-3 max-w-[500px]">
+          <div className="text-teal-950 font-normal pb-3 max-w-[500px]">
             Pour obtenir votre estimation nous avons besoin de votre e-mail
             professionnel (pas de panique nous ne vous enverrons aucune pub)
           </div>
@@ -91,7 +156,7 @@ export default function Email({
             type="email"
             value={data?.Email || ""}
             onChange={handleEmailChange}
-            className="text-[#285E86] font-medium font-['Figtree'] leading-tight bg-transparent outline-none placeholder:text-blue-300 min-w-[30px] pr-6"
+            className="text-[#285E86] font-medium leading-tight bg-transparent outline-none placeholder:text-blue-300 min-w-[30px] pr-6"
             placeholder="exemple@email.com"
             style={{
               "--input-width": `${Math.max(
@@ -139,7 +204,7 @@ export default function Email({
             <div className="w-2 h-2 bg-cyan-700 rounded-full" />
           )}
         </div>
-        <div className="ml-2 text-teal-950 text-opacity-60 text-xs font-normal font-['Figtree']">
+        <div className="ml-2 text-teal-950 text-opacity-60 text-xs font-normal">
           J'accepte les RGPD
         </div>
       </label>

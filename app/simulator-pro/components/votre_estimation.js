@@ -1,4 +1,39 @@
-export default function VotreEstimation({ data, setData }) {
+import React, { useEffect, useState } from "react";
+
+export default function VotreEstimation({ data }) {
+  const [estimationRange, setEstimationRange] = useState({
+    min: 0,
+    max: 0
+  });
+
+  useEffect(() => {
+    
+    // Check if estimation data exists
+    if (data.estimation && data.estimation.cout) {
+      const coutValue = parseFloat(data.estimation.cout);
+      
+      // Calculate min and max values (cout - 10% and cout + 10%)
+      const minValue = Math.round(coutValue - (coutValue * 0.1));
+      const maxValue = Math.round(coutValue + (coutValue * 0.1));
+      
+      setEstimationRange({
+        min: minValue,
+        max: maxValue
+      });
+    } else {
+      console.warn("No estimation data found in props");
+    }
+  }, [data.estimation]);
+
+  // Format currency with Euro symbol
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0
+    }).format(value);
+  };
+
   return (
     <div className="flex flex-col items-start px-2 sm:px-0">
       <div className="flex flex-col bg-[#FCFCFC] w-full">
@@ -21,7 +56,7 @@ export default function VotreEstimation({ data, setData }) {
       </div>
       <div className="w-full max-w-[550px] p-4 sm:p-6 bg-oklch(0.977 0.013 236.62) border-2 rounded-xl border-gray-300">
         <div className="text-red-600 text-2xl sm:text-3xl font-bold mb-4">
-          1245 € - 1489 €
+          {formatCurrency(estimationRange.min)} - {formatCurrency(estimationRange.max)}
         </div>
         <div className="flex flex-col sm:flex-row items-stretch mb-10 border border-gray-200 rounded-lg p-3 sm:p-4 bg-white">
           {/* Illustration container */}
@@ -34,7 +69,7 @@ export default function VotreEstimation({ data, setData }) {
               className="object-contain w-full h-full"
             />
           </div>
-          
+         
           <div className="flex flex-col justify-between w-full">
             <p className="text-gray-600 mb-4 text-[13px] sm:text-[14px]">
               Cette fourchette représente <b>une estimation indicative.</b> Pour

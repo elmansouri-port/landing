@@ -38,7 +38,7 @@ export default function VotreSalarie2({
       {/* Salarie Name input - new section */}
       <div className="text-base" style={{ color: "#0A2C2D" }}>
         <div className="flex flex-wrap items-center gap-1">
-          <div className="text-teal-950 font-normal font-['Figtree']">
+          <div className="text-teal-950 font-normal">
             Il exerce en tant que
           </div>
 
@@ -47,7 +47,7 @@ export default function VotreSalarie2({
               type="text"
               value={data?.SalarieName || ""}
               onChange={handleSalarieNameChange}
-              className="text-[#285E86] font-medium font-['Figtree'] leading-tight bg-transparent outline-none placeholder:text-blue-300 min-w-[80px] pr-6"
+              className="text-[#285E86] font-medium leading-tight bg-transparent outline-none placeholder:text-blue-300 min-w-[80px] pr-6"
               placeholder="régisseur"
               style={{
                 "--input-width": `${Math.max(
@@ -81,7 +81,7 @@ export default function VotreSalarie2({
             )}
           </div>
 
-          <div className="text-teal-950 font-normal font-['Figtree']">.</div>
+          <div className="text-teal-950 font-normal">.</div>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function VotreBulletinDePaie2({
+export default function VotresalaireMode({
   data,
   setData,
   onNext,
@@ -8,17 +8,17 @@ export default function VotreBulletinDePaie2({
   isLastStep,
 }) {
   const [localData, setLocalData] = useState({
-    bulletinDePaie2: data?.bulletinDePaie2 || "",
+    salaireMode: data?.salaireMode || "",
     NbTime: data?.NbTime || "",
   });
 
   const isCurrentStepComplete = !!(
-    localData.bulletinDePaie2 && localData.NbTime
+    localData.salaireMode && localData.NbTime
   );
 
   // Handle selection of Bulletin de Paie type
-  const handleBulletinDePaie2Select = (selectedOption) => {
-    const updatedData = { ...localData, bulletinDePaie2: selectedOption };
+  const handlesalaireModeSelect = (selectedOption) => {
+    const updatedData = { ...localData, salaireMode: selectedOption };
     setLocalData(updatedData);
     setData({ ...data, ...updatedData });
   };
@@ -36,7 +36,7 @@ export default function VotreBulletinDePaie2({
   };
 
   // Bulletin de Paie options
-  const bulletinDePaie2Options = [
+  const salaireModeOptions = [
     "salaire net",
     "salaire brut",
     "coût employeur",
@@ -71,13 +71,13 @@ export default function VotreBulletinDePaie2({
           Je souhaite que le bulletin de paie soit calculé selon:{" "}
           <span
             className={`px-2 py-0.5 rounded-md ${
-              localData.bulletinDePaie2
+              localData.salaireMode
                 ? "bg-[#E7F1F8] text-[#285E86]"
                 : "bg-slate-100 text-[#99C2E1]"
             }`}
           >
             <span className="font-medium">
-              {localData.bulletinDePaie2 || "salaire net"}
+              {localData.salaireMode || "salaire net"}
             </span>
           </span>{" "}
           fixé à{" "}
@@ -86,7 +86,7 @@ export default function VotreBulletinDePaie2({
               type="Number"
               value={localData.NbTime}
               onChange={handleNbTimeChange}
-              className="text-[#285E86] font-medium font-['Figtree'] leading-tight bg-transparent outline-none placeholder:text-blue-300 w-[80px] pr-6 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              className="text-[#285E86] font-medium leading-tight bg-transparent outline-none placeholder:text-blue-300 w-[80px] pr-6 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               placeholder="2 300"
               style={{
                 appearance: "none",
@@ -119,19 +119,19 @@ export default function VotreBulletinDePaie2({
         </div>
       </div>
       <div className="max-w-[500px] flex flex-wrap gap-1.5">
-        {bulletinDePaie2Options.map((option) => (
+        {salaireModeOptions.map((option) => (
           <div
             key={option}
-            onClick={() => handleBulletinDePaie2Select(option)}
+            onClick={() => handlesalaireModeSelect(option)}
             className={`p-3 rounded-md cursor-pointer ${
-              localData.bulletinDePaie2 === option
+              localData.salaireMode === option
                 ? "bg-[#E7F1F8] outline-3 outline-[#9DC4E2]"
                 : "outline-2 outline-slate-300 hover:bg-slate-50"
             }`}
           >
             <div
               className={`text-sm font-semibold ${
-                localData.bulletinDePaie2 === option
+                localData.salaireMode === option
                   ? "text-[#285E86]"
                   : "text-teal-950"
               }`}
