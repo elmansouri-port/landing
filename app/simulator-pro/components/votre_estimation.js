@@ -35,7 +35,7 @@ export default function VotreEstimation({ data }) {
   };
 
   return (
-    <div className="flex flex-col items-start px-2 sm:px-0">
+    <div className="flex flex-col items-start px-2 sm:px-0 overflow-hidden">
       <div className="flex flex-col bg-[#FCFCFC] w-full">
         <div className="w-full max-w-[700px] text-left">
           <div className="mb-4 w-[100px] h-[80px] sm:w-[160px] sm:h-[90px] relative">
