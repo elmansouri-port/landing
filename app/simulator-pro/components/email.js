@@ -86,8 +86,6 @@ export default function Email({
       };
       
       setData(updatedData);
-      console.log(data)
-      console.log(estimationResult)
       return estimationResult;
     } catch (error) {
       console.error(error);
