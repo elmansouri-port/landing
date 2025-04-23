@@ -25,7 +25,7 @@ export default function VotreSalarie1({
               height="130px"
             />
           </div>
-          <div className="flex flex-wrap items-baseline gap-2 pb-5">
+          <div className="flex flex-wrap items-baseline gap-2 pb-7">
             <div className="text-teal-950 text-4xl font-semibold">
               La rémunération
             </div>

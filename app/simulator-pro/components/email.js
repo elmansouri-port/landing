@@ -17,7 +17,7 @@ export default function Email({
   // Prepare the payload for API request
   const preparePayload = () => {
     return {
-      domain: data.domain || "la musique",
+      domain: data.conventionCollective || "1285",
       StructurName: data.StructurName || "structure name",
       CommuneName: data.CommuneName || "commune",
       nbrSalariés: data.nbrSalariés || "0-3",
@@ -25,7 +25,6 @@ export default function Email({
       activite: data.activite || "un expert-comptable gère mes paies",
       NbBulletin: data.NbBulletin || "0 à 5",
       salarie1: data.salarie1 || "un artiste",
-      SalarieName: data.SalarieName || "regisseur",
       type: data.type || "heure(s)",
       startDate: data.startDate || "16/04/2025",
       startTime: data.startTime || "12:59",
@@ -133,7 +132,7 @@ export default function Email({
               height="130px"
             />
           </div>
-          <div className="text-teal-950 text-3xl font-semibold pb-5">
+          <div className="text-teal-950 text-3xl font-semibold pb-7">
             Plus qu'un pas avant votre estimation !
           </div>
         </div>

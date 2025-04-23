@@ -9,7 +9,7 @@ import VotreActivite1 from "./components/vos_informations/votre_activite1";
 import VotreActivite2 from "./components/vos_informations/votre_activite2";
 import VotreProfil from "./components/vos_informations/votre_profil";
 import VotreSalaire1 from "./components/la_remuneration/votre_salarie1";
-import VotreSalaire2 from "./components/la_remuneration/votre_salarie2";
+//import VotreSalaire2 from "./components/la_remuneration/votre_salarie2";
 import VotreBulletinDePaie1 from "./components/la_remuneration/votre_bulletin_de_paie1";
 import VotreBulletinDePaie2 from "./components/la_remuneration/votre_bulletin_de_paie2";
 import VotreEstimation from "./components/votre_estimation";
@@ -26,6 +26,14 @@ export default function SimulatorPro() {
   const [formData, setFormData] = useState({});
 
   // My steps
+  
+  /*excluded ,
+    {
+      id: "votre_salaire2",
+      component: VotreSalaire2,
+      section: "la_remuneration",
+      title: "Votre salaire",
+    }*/
   const steps = [
     {
       id: "votre_projet1",
@@ -72,12 +80,6 @@ export default function SimulatorPro() {
     {
       id: "votre_salaire1",
       component: VotreSalaire1,
-      section: "la_remuneration",
-      title: "Votre salaire",
-    },
-    {
-      id: "votre_salaire2",
-      component: VotreSalaire2,
       section: "la_remuneration",
       title: "Votre salaire",
     },
@@ -375,14 +377,13 @@ export default function SimulatorPro() {
                 />
               </div>
               {/* Text content */}
-              <h1 className="mb-4 w-full max-w-[518px] text-[#0A2C2D] font-figtree text-2xl sm:text-[32px] font-semibold leading-none">
+              <h1 className="mb-7 w-full max-w-[518px] text-[#0A2C2D] font-figtree text-2xl sm:text-[32px] font-semibold leading-none">
                 Estimez votre bulletin de <br className="hidden sm:block" />{" "}
-                <span className="block mt-2">paie en moins de 4 minutes !</span>
+                <span className="block mt-2">paie en moins de 2 minutes !</span>
               </h1>
 
               <p className="mb-6 w-full max-w-[316px] text-[#0A2C2D]/70 font-figtree text-sm sm:text-base font-medium leading-[25px]">
-                Un peu de texte pour préciser de quoi il est question et pour
-                éviter d'avoir un titre trop long qui manque de punch
+              Coût d’un recrutement ? Estimez facilement les charges (patronales, salariales) et le coût total à partir du salaire (brut, net ou coût employeur)
               </p>
               {/* CTA Button */}
               <button

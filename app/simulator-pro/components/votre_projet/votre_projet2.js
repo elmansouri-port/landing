@@ -26,7 +26,7 @@ export default function VotreProjet3({
               height="130px"
             />
           </div>
-          <div className="text-teal-950 text-4xl font-semibold pb-5">
+          <div className="text-teal-950 text-4xl font-semibold pb-7">
             Votre projet
           </div>
         </div>

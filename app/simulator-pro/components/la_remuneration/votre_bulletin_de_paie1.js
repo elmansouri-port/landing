@@ -179,9 +179,77 @@ export default function VotreBulletinDePaie1({
     }
   };
 
+  // Improved handleTimeChange function to automatically format the input
   const handleTimeChange = (e) => {
-    const newTime = e.target.value;
-    setSelectedTime(newTime);
+    // Get the current cursor position
+    const cursorPosition = e.target.selectionStart;
+    // Get the raw input value
+    const inputValue = e.target.value;
+    
+    // Remove any non-digit characters
+    const digitsOnly = inputValue.replace(/\D/g, "");
+    
+    // Format the time based on the number of digits entered
+    let formattedTime = "";
+    
+    if (digitsOnly.length === 0) {
+      formattedTime = "";
+    } else if (digitsOnly.length === 1) {
+      // Single digit - just show it
+      formattedTime = digitsOnly;
+    } else if (digitsOnly.length === 2) {
+      // Exactly 2 digits (hours) - add colon
+      const hours = parseInt(digitsOnly, 10);
+      // Ensure hours don't exceed 23
+      formattedTime = (hours > 23 ? "23" : digitsOnly) + ":";
+    } else {
+      // More than 2 digits - format as HH:MM
+      const hours = parseInt(digitsOnly.substring(0, 2), 10);
+      let minutes = digitsOnly.substring(2);
+      
+      // Ensure hours don't exceed 23
+      const validHours = hours > 23 ? "23" : digitsOnly.substring(0, 2);
+      
+      // Ensure minutes don't exceed 59
+      if (minutes.length > 0 && parseInt(minutes, 10) > 59) {
+        minutes = "59";
+      }
+      
+      formattedTime = validHours + ":" + minutes;
+    }
+    
+    setSelectedTime(formattedTime);
+    
+    // Adjust cursor position after state update
+    setTimeout(() => {
+      // If we just added a colon after typing the second digit
+      if (digitsOnly.length === 2 && inputValue.length < formattedTime.length) {
+        e.target.selectionStart = 3;
+        e.target.selectionEnd = 3;
+      }
+    }, 0);
+  };
+
+  // Handle blur for time field to ensure proper formatting when complete
+  const handleTimeBlur = () => {
+    if (selectedTime) {
+      // Check if time has a colon
+      if (!selectedTime.includes(":")) {
+        // If just 1 or 2 digits (hours only), add ":00"
+        const hours = parseInt(selectedTime, 10);
+        const validHours = hours > 23 ? "23" : selectedTime.padStart(2, "0");
+        setSelectedTime(validHours + ":00");
+      } else if (selectedTime.endsWith(":")) {
+        // If time ends with colon, add "00" for minutes
+        setSelectedTime(selectedTime + "00");
+      } else {
+        // If time has colon but minutes are incomplete
+        const [hours, mins] = selectedTime.split(":");
+        const validHours = parseInt(hours, 10) > 23 ? "23" : hours.padStart(2, "0");
+        const validMins = mins.padStart(2, "0");
+        setSelectedTime(validHours + ":" + validMins);
+      }
+    }
   };
 
   const handleNumberOfDaysChange = (e) => {
@@ -233,7 +301,7 @@ export default function VotreBulletinDePaie1({
               height="130px"
             />
           </div>
-          <div className="flex flex-wrap items-baseline gap-2 pb-5">
+          <div className="flex flex-wrap items-baseline gap-2 pb-7">
             <div className="text-teal-950 text-4xl font-semibold">
               La rémunération
             </div>
@@ -377,15 +445,38 @@ export default function VotreBulletinDePaie1({
             )}
           </div>
 
-          <input
-            type="text"
-            value={selectedTime}
-            onChange={handleTimeChange}
-            className={`w-[80px] ${
-              inputErrors.time ? "outline-[#E42724]" : "outline-[#285E86]"
-            } font-medium leading-tight bg-transparent text-[#285E86] pr-6 p-3 rounded-lg outline-2 outline-offset-[-1px]`}
-            placeholder="Heure"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              value={selectedTime}
+              onChange={handleTimeChange}
+              onBlur={handleTimeBlur}
+              className={`w-[80px] ${
+                inputErrors.time ? "outline-[#E42724]" : "outline-[#285E86]"
+              } font-medium leading-tight bg-transparent text-[#285E86] p-3 rounded-lg outline-2 outline-offset-[-1px]`}
+              placeholder="HH:MM"
+              maxLength="5"
+            />
+            {selectedTime && (
+              <button
+                onClick={() => clearData("time")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
 
           <div className="mb-4 text-base" style={{ color: "#0A2C2D" }}>
             <div>

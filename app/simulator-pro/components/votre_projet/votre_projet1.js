@@ -5,13 +5,20 @@ export default function VotreProjet1({
   onPrev,
   isCurrentStepComplete,
 }) {
-  const handleDomainSelect = (domain) => {
-    setData({ ...data, domain });
+  const handleconventionCollectiveSelect = (option) => {
+    setData({ ...data, conventionCollective: option.id });
   };
 
-  const domainOptions = [
-    ["le spectacle vivant", "l'audiovisuel", "le cinéma", "la radiodiffusion"],
-    ["la musique", "la télédiffusion", "l'enregistrement sonore", "autres"],
+  const conventionCollectiveOptions = [
+    { id: "1285", text: "1285 Entreprises artistiques et culturelles" },
+    { id: "3097", text: "3097 Production cinématographique" },
+    { id: "1790", text: "1790 Espaces de loisirs, d'attractions et culturels" },
+    { id: "2412", text: "2412 Production de films d'animation" },
+    { id: "2717", text: "2717 Entreprises techniques au service de la création et de l'événement" },
+    { id: "2642", text: "2642 Production audiovisuelle" },
+    { id: "2770", text: "2770 Edition phonographique (annexée à 2121)" },
+    { id: "3090", text: "3090 Entreprises du secteur privé du spectacle vivant" },
+    { id: "1922", text: "1922 Radiodiffusion" },
   ];
 
   return (
@@ -26,50 +33,48 @@ export default function VotreProjet1({
               height="130px"
             />
           </div>
-          <div className=" text-teal-950 text-4xl font-semibold pb-5">
+          <div className="text-teal-950 text-4xl font-semibold pb-7">
             Votre projet
           </div>
         </div>
       </div>
       <div className="mb-4 text-base" style={{ color: "#0A2C2D" }}>
         <p>
-          Le domaine de mon projet est{" "}
+          Ma convention collective est{" "}
           <span
             className={`px-2 py-0.5 rounded-md ${
-              data?.domain
+              data?.conventionCollective
                 ? "bg-[#E7F1F8] text-[#285E86]"
                 : "bg-slate-100 text-[#99C2E1]"
             }`}
           >
-            <span className="font-medium">{data?.domain || "le cinéma"}</span>
+            <span className="font-medium">{data?.conventionCollective || "1285"}</span>
           </span>
           .
         </p>
       </div>
-      <div className="max-w-[500px] flex flex-wrap gap-2.5">
-        {domainOptions.flat().map((domain) =>
-          data?.domain === domain ? (
-            <div
-              key={domain}
-              onClick={() => handleDomainSelect(domain)}
-              className="p-3 bg-[#E7F1F8] rounded-md outline-3 outline-[#9DC4E2] cursor-pointer"
+      <div className="flex flex-wrap gap-2.5 w-full">
+        {conventionCollectiveOptions.map((option) => (
+          <div
+            key={option.id}
+            onClick={() => handleconventionCollectiveSelect(option)}
+            className={`p-3 rounded-md cursor-pointer ${
+              data?.conventionCollective === option.id
+                ? "bg-[#E7F1F8] outline-3 outline-[#9DC4E2]"
+                : "outline-2 outline-slate-300 hover:bg-slate-50"
+            }`}
+          >
+            <div 
+              className={`text-sm font-semibold ${
+                data?.conventionCollective === option.id
+                  ? "text-[#285E86]"
+                  : "text-teal-950"
+              }`}
             >
-              <div className="text-[#285E86] text-sm font-semibold">
-                {domain}
-              </div>
+              {option.text}
             </div>
-          ) : (
-            <div
-              key={domain}
-              onClick={() => handleDomainSelect(domain)}
-              className="p-3 rounded-md outline-2 outline-slate-300 cursor-pointer hover:bg-slate-50"
-            >
-              <div className="text-teal-950 text-sm font-semibold">
-                {domain}
-              </div>
-            </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
 
       {/* Navigation buttons */}

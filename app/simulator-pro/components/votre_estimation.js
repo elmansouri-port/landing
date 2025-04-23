@@ -97,7 +97,7 @@ export default function VotreEstimation({ data }) {
             <div className="text-sm mb-2 font-semibold text-black">
               Besoin d'aide ?
             </div>
-            <div className="text-xs text-gray-600 mb-2">
+            <div className="text-xs text-gray-600 mb-6">
               Nos experts sont là pour vous aider
             </div>
             <button className="bg-[#D5F5F6] w-full text-[#0A2C2D] py-2 rounded-lg hover:bg-blue-200 transition text-sm">
