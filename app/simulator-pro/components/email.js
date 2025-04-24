@@ -102,7 +102,7 @@ export default function Email({
       setTimeout(() => {
         setIsLoading(false);
         onNext();
-      }, 4000);
+      }, 2000);
     }
   };
 
