@@ -51,7 +51,7 @@ export default function votre_profil({
               placeholder="Donald Draper"
               style={{
                 "--input-width": `${Math.max(
-                  data?.profileName?.length * 8 || "Donald Draper  ".length * 8,
+                  data?.profileName?.length * 8 || "Donald Draper  ".length * 9,
                   90
                 )}px`,
                 width: "var(--input-width)",

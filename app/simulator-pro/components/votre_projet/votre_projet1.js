@@ -14,7 +14,7 @@ export default function VotreProjet1({
     { id: "3097", text: "3097 Production cinématographique" },
     { id: "1790", text: "1790 Espaces de loisirs, d'attractions et culturels" },
     { id: "2412", text: "2412 Production de films d'animation" },
-    { id: "2717", text: "2717 Entreprises techniques au service de la création et de l'événement" },
+    { id: "3252", text: "3252 Entreprises techniques au service de la création et de l'événement" },
     { id: "2642", text: "2642 Production audiovisuelle" },
     { id: "2770", text: "2770 Edition phonographique (annexée à 2121)" },
     { id: "3090", text: "3090 Entreprises du secteur privé du spectacle vivant" },
