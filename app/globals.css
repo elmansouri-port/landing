@@ -156,6 +156,6 @@ body {
 }
 
 .animate-fly {
-  animation: fly 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: fly 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   transform-origin: center;
 }
